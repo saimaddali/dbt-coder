@@ -1,0 +1,31 @@
+id,order_item_id,reason,condition,refund_amount,status,requested_at,processed_at
+1,161,not_as_described,used,3750,processed,2023-08-16 08:00:43,2024-03-29 20:55:21
+2,171,changed_mind,damaged,24000,processed,2023-12-05 19:25:19,2024-02-18 16:50:20
+3,28,damaged_in_shipping,used,10400,processed,2023-10-18 17:53:22,2023-10-22 02:35:38
+4,119,too_late,new,4500,processed,2023-06-10 06:58:36,2023-12-30 23:49:04
+5,53,defective,damaged,6750,processed,2023-11-18 10:13:00,2024-02-23 19:50:30
+6,176,wrong_item,new,1200,pending,2023-08-11 09:54:35,
+7,56,damaged_in_shipping,like_new,4500,processed,2023-09-03 14:19:57,2023-10-19 14:16:03
+8,31,defective,like_new,7500,processed,2023-10-22 12:20:11,2024-01-01 13:27:20
+9,177,not_as_described,used,2250,processed,2023-07-29 19:24:52,2023-11-13 08:04:53
+10,60,changed_mind,used,1950,processed,2023-10-04 19:15:56,2024-01-19 16:30:23
+11,173,defective,damaged,22500,processed,2024-02-14 09:08:01,2024-04-04 03:28:44
+12,84,not_as_described,like_new,14625,processed,2023-07-24 21:40:53,2023-10-09 22:22:18
+13,159,damaged_in_shipping,damaged,2000,pending,2024-06-17 04:36:46,
+14,26,damaged_in_shipping,damaged,3900,processed,2023-08-22 12:38:17,2024-05-25 20:00:51
+15,1,not_as_described,new,1200,pending,2023-07-27 15:19:05,
+16,188,too_late,used,3600,processed,2023-06-15 13:48:03,2023-08-11 19:25:20
+17,192,too_late,new,18000,processed,2024-03-30 07:08:45,2024-06-05 23:14:48
+18,97,not_as_described,damaged,7800,processed,2023-06-03 21:02:34,2024-06-18 02:55:40
+19,141,changed_mind,damaged,11250,processed,2023-07-25 10:45:10,2023-07-26 06:49:36
+20,101,changed_mind,damaged,1250,processed,2024-03-05 18:43:21,2024-05-02 19:16:52
+21,193,changed_mind,new,5000,processed,2023-08-10 10:09:17,2023-12-20 01:36:53
+22,30,defective,damaged,6375,pending,2023-11-05 18:26:24,
+23,102,defective,damaged,5600,processed,2023-10-27 08:33:25,2024-03-26 12:02:22
+24,18,defective,used,3750,processed,2023-08-05 21:57:04,2024-01-22 02:18:15
+25,108,too_late,like_new,4800,pending,2023-06-28 17:27:51,
+26,24,too_late,like_new,4200,pending,2024-03-28 23:09:07,
+27,42,damaged_in_shipping,used,4050,processed,2024-05-14 23:41:40,2024-05-14 19:07:43
+28,64,defective,used,3750,processed,2024-02-18 07:31:51,2024-02-26 07:31:48
+29,113,changed_mind,new,2400,processed,2024-05-22 00:38:34,2024-06-17 01:08:21
+30,13,wrong_item,like_new,1000,processed,2023-06-29 15:26:58,2024-01-04 20:49:44

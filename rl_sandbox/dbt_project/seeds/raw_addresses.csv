@@ -1,0 +1,61 @@
+id,customer_id,address_type,street,city,state,zip_code,country,is_default,created_at,updated_at
+1,1,shipping,350 Innovation Ct,Portland,OR,97201,US,true,2023-05-12 15:46:46,2023-05-12 15:46:46
+2,2,shipping,322 Tech Park,Detroit,MI,48201,US,true,2023-07-30 07:02:50,2023-07-30 07:02:50
+3,2,billing,243 Enterprise Dr,Portland,OR,97201,US,true,2023-07-30 07:02:50,2023-07-30 07:02:50
+4,3,shipping,935 Broadway,Minneapolis,MN,55401,US,true,2022-06-30 17:06:48,2022-06-30 17:06:48
+5,3,billing,691 Agency Ave,New York,NY,10016,US,true,2022-06-30 17:06:48,2022-06-30 17:06:48
+6,4,shipping,342 Market St,New York,NY,10016,US,true,2022-12-15 21:51:48,2022-12-15 21:51:48
+7,4,billing,326 Startup Way,Philadelphia,PA,19101,US,true,2022-12-15 21:51:48,2022-12-15 21:51:48
+8,5,shipping,670 Agency Ave,Portland,OR,97201,US,true,2022-11-25 06:06:12,2022-11-25 06:06:12
+9,5,billing,741 Commerce Blvd,Chicago,IL,60601,US,true,2022-11-25 06:06:12,2022-11-25 06:06:12
+10,6,shipping,148 River Dr,Nashville,TN,37201,US,true,2022-10-23 02:21:29,2022-10-23 02:21:29
+11,6,billing,904 Enterprise Dr,Miami,FL,33101,US,true,2022-10-23 02:21:29,2022-10-23 02:21:29
+12,7,shipping,518 Pine Rd,Phoenix,AZ,85001,US,true,2022-04-07 22:55:41,2022-04-07 22:55:41
+13,8,billing,969 Maple Ln,Minneapolis,MN,55401,US,true,2023-07-02 06:10:15,2023-07-02 06:10:15
+14,9,shipping,925 Lake Blvd,San Francisco,CA,94105,US,true,2022-10-23 06:03:59,2022-10-23 06:03:59
+15,9,billing,522 Startup Way,Detroit,MI,48201,US,true,2022-10-23 06:03:59,2022-10-23 06:03:59
+16,10,shipping,497 Maple Ln,San Francisco,CA,94105,US,true,2023-06-05 12:58:14,2023-06-05 12:58:14
+17,11,shipping,560 Main St,Seattle,WA,98101,US,true,2022-07-10 03:36:23,2022-07-10 03:36:23
+18,12,shipping,152 Market St,San Jose,CA,95101,US,true,2022-06-27 21:45:55,2022-06-27 21:45:55
+19,13,shipping,994 Elm Ave,Portland,OR,97201,US,true,2023-11-12 16:40:35,2023-11-12 16:40:35
+20,14,shipping,322 Lake Blvd,Detroit,MI,48201,US,true,2022-04-19 10:53:52,2022-04-19 10:53:52
+21,15,shipping,115 Maple Ln,Los Angeles,CA,90001,US,true,2022-10-09 04:06:10,2022-10-09 04:06:10
+22,15,billing,864 Tech Park,Denver,CO,80201,US,true,2022-10-09 04:06:10,2022-10-09 04:06:10
+23,16,shipping,812 Agency Ave,Minneapolis,MN,55401,US,true,2022-04-29 17:10:07,2022-04-29 17:10:07
+24,16,billing,345 Enterprise Dr,Miami,FL,33101,US,true,2022-04-29 17:10:07,2022-04-29 17:10:07
+25,17,shipping,489 Lake Blvd,Los Angeles,CA,90001,US,true,2022-12-30 13:04:56,2022-12-30 13:04:56
+26,17,billing,415 Market St,Atlanta,GA,30301,US,true,2022-12-30 13:04:56,2022-12-30 13:04:56
+27,18,shipping,577 Elm Ave,Nashville,TN,37201,US,true,2023-11-19 05:39:07,2023-11-19 05:39:07
+28,18,billing,879 Main St,Nashville,TN,37201,US,true,2023-11-19 05:39:07,2023-11-19 05:39:07
+29,19,shipping,479 River Dr,San Jose,CA,95101,US,true,2022-05-03 20:16:27,2022-05-03 20:16:27
+30,20,shipping,859 Pine Rd,Minneapolis,MN,55401,US,true,2023-01-30 07:52:20,2023-01-30 07:52:20
+31,21,shipping,693 Innovation Ct,Raleigh,NC,27601,US,true,2022-04-29 17:07:49,2022-04-29 17:07:49
+32,23,shipping,611 Enterprise Dr,Minneapolis,MN,55401,US,true,2022-07-07 02:10:18,2022-07-07 02:10:18
+33,23,billing,363 Tech Park,New York,NY,10016,US,true,2022-07-07 02:10:18,2022-07-07 02:10:18
+34,24,shipping,571 Pine Rd,Nashville,TN,37201,US,true,2023-08-14 18:39:07,2023-08-14 18:39:07
+35,24,billing,273 Pine Rd,Atlanta,GA,30301,US,true,2023-08-14 18:39:07,2023-08-14 18:39:07
+36,25,shipping,288 Broadway,Nashville,TN,37201,US,true,2023-11-09 15:19:50,2023-11-09 15:19:50
+37,25,billing,636 Oak St,Portland,OR,97201,US,true,2023-11-09 15:19:50,2023-11-09 15:19:50
+38,26,shipping,937 Commerce Blvd,Seattle,WA,98101,US,true,2023-06-06 17:09:08,2023-06-06 17:09:08
+39,28,shipping,824 Pine Rd,Seattle,WA,98101,US,true,2023-05-06 04:36:42,2023-05-06 04:36:42
+40,29,shipping,161 Agency Ave,Atlanta,GA,30301,US,true,2022-08-05 07:11:32,2022-08-05 07:11:32
+41,29,billing,594 Commerce Blvd,Salt Lake City,UT,84101,US,true,2022-08-05 07:11:32,2022-08-05 07:11:32
+42,30,shipping,644 Enterprise Dr,Austin,TX,78701,US,true,2023-09-20 04:50:06,2023-09-20 04:50:06
+43,31,billing,393 Oak St,Detroit,MI,48201,US,true,2022-12-29 17:58:14,2022-12-29 17:58:14
+44,32,shipping,925 Broadway,Phoenix,AZ,85001,US,true,2022-09-21 13:03:32,2022-09-21 13:03:32
+45,33,shipping,252 Maple Ln,Philadelphia,PA,19101,US,true,2022-11-24 16:26:37,2022-11-24 16:26:37
+46,34,shipping,373 Tech Park,Atlanta,GA,30301,US,true,2022-03-18 01:09:03,2022-03-18 01:09:03
+47,35,shipping,570 Agency Ave,Miami,FL,33101,US,true,2022-11-12 16:06:25,2022-11-12 16:06:25
+48,36,shipping,800 Main St,Los Angeles,CA,90001,US,true,2022-01-02 16:10:44,2022-01-02 16:10:44
+49,36,billing,195 Startup Way,Portland,OR,97201,US,true,2022-01-02 16:10:44,2022-01-02 16:10:44
+50,37,shipping,587 Oak St,Detroit,MI,48201,US,true,2023-07-22 09:36:21,2023-07-22 09:36:21
+51,37,billing,184 Lake Blvd,Chicago,IL,60601,US,true,2023-07-22 09:36:21,2023-07-22 09:36:21
+52,38,shipping,679 Main St,New York,NY,10016,US,true,2022-02-15 10:12:27,2022-02-15 10:12:27
+53,38,billing,143 Maple Ln,Philadelphia,PA,19101,US,true,2022-02-15 10:12:27,2022-02-15 10:12:27
+54,39,shipping,586 Market St,Raleigh,NC,27601,US,true,2023-01-26 13:48:37,2023-01-26 13:48:37
+55,40,billing,677 Commerce Blvd,Detroit,MI,48201,US,true,2023-04-08 04:15:30,2023-04-08 04:15:30
+56,41,billing,116 Maple Ln,New York,NY,10016,US,true,2022-01-31 20:50:17,2022-01-31 20:50:17
+57,42,shipping,178 Market St,Miami,FL,33101,US,true,2023-06-05 04:35:49,2023-06-05 04:35:49
+58,43,shipping,793 Broadway,Miami,FL,33101,US,true,2023-12-23 14:09:24,2023-12-23 14:09:24
+59,43,billing,873 Innovation Ct,Miami,FL,33101,US,true,2023-12-23 14:09:24,2023-12-23 14:09:24
+60,44,billing,612 Innovation Ct,Seattle,WA,98101,US,true,2022-06-15 13:29:03,2022-06-15 13:29:03

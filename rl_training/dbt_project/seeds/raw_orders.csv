@@ -1,0 +1,101 @@
+id,customer_id,order_date,status,amount,shipping_method,discount_amount,tax_amount,currency,channel,notes
+1,26,2023-07-31,completed,8500,standard,0,680,USD,mobile,bulk order
+2,30,2023-05-10,cancelled,27500,standard,0,2200,USD,mobile,gift order
+3,48,2022-10-10,completed,8500,express,1275,680,USD,phone,bulk order
+4,6,2024-02-26,completed,27500,standard,0,2200,USD,in_store,
+5,10,2022-06-19,completed,7500,express,750,600,USD,in_store,
+6,30,2023-04-18,processing,7500,overnight,1125,600,USD,mobile,gift order
+7,26,2022-12-07,completed,27500,overnight,0,2200,USD,in_store,
+8,50,2023-04-27,completed,5000,overnight,500,400,USD,mobile,
+9,36,2022-12-11,completed,15000,standard,750,1200,USD,phone,repeat customer
+10,36,2023-09-06,shipped,32000,express,3200,2560,USD,in_store,repeat customer
+11,28,2024-03-07,returned,15000,standard,2250,1200,USD,in_store,gift order
+12,29,2022-12-19,completed,41000,overnight,0,3280,USD,in_store,repeat customer
+13,32,2023-09-30,completed,8500,express,0,680,USD,phone,loyalty discount applied
+14,16,2022-12-29,shipped,10500,express,0,840,USD,web,
+15,15,2023-03-25,completed,29900,standard,0,2392,USD,mobile,corporate account
+16,22,2023-07-27,cancelled,12000,standard,0,960,USD,web,corporate account
+17,25,2024-05-03,processing,29900,standard,2990,2392,USD,mobile,gift order
+18,1,2023-03-01,completed,32000,express,1600,2560,USD,mobile,repeat customer
+19,39,2024-04-28,completed,15000,standard,0,1200,USD,mobile,gift order
+20,2,2023-03-30,shipped,27500,overnight,1375,2200,USD,phone,
+21,30,2024-05-15,completed,21000,express,0,1680,USD,mobile,
+22,6,2023-10-13,shipped,5000,express,0,400,USD,web,loyalty discount applied
+23,25,2023-02-10,completed,15000,standard,0,1200,USD,in_store,corporate account
+24,18,2024-01-06,shipped,8500,standard,425,680,USD,web,repeat customer
+25,4,2023-02-27,completed,27500,standard,4125,2200,USD,web,
+26,16,2022-11-02,completed,21000,standard,0,1680,USD,web,gift order
+27,43,2022-08-28,processing,7500,express,1125,600,USD,web,bulk order
+28,11,2023-09-14,processing,29900,overnight,0,2392,USD,in_store,
+29,20,2022-08-23,processing,2400,standard,240,192,USD,phone,corporate account
+30,26,2023-12-08,completed,3500,express,525,280,USD,in_store,
+31,7,2023-11-24,completed,41000,overnight,4100,3280,USD,in_store,
+32,37,2024-01-29,completed,10500,express,525,840,USD,phone,bulk order
+33,5,2023-06-28,shipped,2400,express,120,192,USD,web,corporate account
+34,24,2023-10-07,cancelled,29900,standard,0,2392,USD,mobile,
+35,47,2023-07-11,completed,21000,express,1050,1680,USD,mobile,corporate account
+36,47,2023-09-04,completed,10500,standard,0,840,USD,web,gift order
+37,16,2024-01-04,cancelled,21000,express,0,1680,USD,phone,corporate account
+38,22,2022-06-23,cancelled,41000,standard,0,3280,USD,web,gift order
+39,14,2023-03-03,completed,10500,standard,1050,840,USD,phone,loyalty discount applied
+40,36,2022-06-08,returned,7500,standard,0,600,USD,phone,corporate account
+41,32,2023-08-06,completed,29900,express,4485,2392,USD,phone,gift order
+42,29,2024-02-06,completed,3500,standard,0,280,USD,mobile,
+43,20,2023-10-29,processing,10500,express,1050,840,USD,mobile,bulk order
+44,28,2024-01-01,returned,10500,standard,1575,840,USD,mobile,loyalty discount applied
+45,20,2022-12-13,completed,3500,overnight,0,280,USD,web,
+46,48,2023-07-22,completed,7500,standard,1125,600,USD,mobile,loyalty discount applied
+47,47,2023-09-01,returned,21000,standard,0,1680,USD,in_store,
+48,19,2022-11-24,shipped,5000,standard,0,400,USD,phone,repeat customer
+49,9,2022-12-31,completed,2400,express,0,192,USD,phone,
+50,41,2024-04-05,cancelled,3500,standard,0,280,USD,mobile,loyalty discount applied
+51,31,2023-06-07,cancelled,10500,standard,0,840,USD,web,loyalty discount applied
+52,31,2022-08-28,completed,12000,express,0,960,USD,mobile,
+53,10,2022-09-24,processing,8500,standard,0,680,USD,web,repeat customer
+54,49,2023-04-20,processing,21000,express,0,1680,USD,in_store,repeat customer
+55,25,2023-05-16,cancelled,8500,express,0,680,USD,mobile,loyalty discount applied
+56,37,2023-09-26,completed,21000,overnight,0,1680,USD,in_store,
+57,41,2022-11-11,completed,27500,standard,0,2200,USD,web,
+58,36,2022-07-29,completed,2400,express,120,192,USD,phone,gift order
+59,19,2022-06-26,completed,8500,overnight,0,680,USD,phone,gift order
+60,5,2023-11-16,completed,45000,standard,6750,3600,USD,mobile,
+61,28,2022-08-29,returned,7500,overnight,0,600,USD,web,
+62,5,2022-07-17,completed,32000,standard,3200,2560,USD,phone,loyalty discount applied
+63,29,2022-09-05,cancelled,29900,standard,0,2392,USD,phone,corporate account
+64,18,2023-06-24,returned,15000,express,0,1200,USD,mobile,
+65,28,2023-12-23,shipped,21000,standard,0,1680,USD,web,
+66,44,2024-03-11,processing,21000,standard,3150,1680,USD,in_store,loyalty discount applied
+67,37,2022-07-02,completed,15000,express,2250,1200,USD,mobile,loyalty discount applied
+68,12,2023-08-29,shipped,27500,express,0,2200,USD,mobile,bulk order
+69,27,2023-02-14,shipped,27500,standard,0,2200,USD,web,corporate account
+70,45,2023-06-20,completed,27500,express,2750,2200,USD,web,gift order
+71,6,2023-01-31,completed,10500,standard,525,840,USD,in_store,repeat customer
+72,1,2023-10-24,returned,15000,express,0,1200,USD,web,repeat customer
+73,24,2023-09-27,cancelled,27500,express,0,2200,USD,in_store,
+74,14,2022-12-25,returned,5000,standard,250,400,USD,phone,gift order
+75,8,2022-06-23,processing,32000,standard,4800,2560,USD,web,loyalty discount applied
+76,36,2022-06-11,returned,12000,standard,0,960,USD,in_store,
+77,30,2022-08-31,completed,15000,overnight,0,1200,USD,mobile,loyalty discount applied
+78,27,2024-03-10,cancelled,15000,standard,0,1200,USD,mobile,repeat customer
+79,10,2023-03-25,completed,45000,express,4500,3600,USD,phone,
+80,5,2023-01-01,shipped,10500,express,0,840,USD,in_store,
+81,19,2023-12-16,completed,41000,express,4100,3280,USD,phone,gift order
+82,10,2023-05-13,returned,15000,standard,0,1200,USD,mobile,repeat customer
+83,25,2023-05-20,shipped,41000,standard,6150,3280,USD,web,corporate account
+84,15,2024-03-26,shipped,2400,standard,360,192,USD,mobile,corporate account
+85,25,2023-10-29,completed,15000,standard,0,1200,USD,mobile,bulk order
+86,7,2024-04-10,cancelled,3500,express,0,280,USD,mobile,
+87,47,2022-09-20,shipped,41000,overnight,0,3280,USD,web,gift order
+88,17,2023-02-18,processing,29900,express,4485,2392,USD,web,bulk order
+89,44,2024-03-29,returned,12000,standard,1800,960,USD,phone,gift order
+90,35,2022-06-28,processing,3500,standard,525,280,USD,phone,loyalty discount applied
+91,15,2024-01-02,completed,12000,standard,1800,960,USD,phone,
+92,29,2022-10-08,completed,45000,standard,0,3600,USD,web,
+93,19,2023-03-06,shipped,12000,standard,0,960,USD,mobile,corporate account
+94,37,2023-11-12,completed,5000,standard,0,400,USD,mobile,corporate account
+95,40,2023-11-13,completed,15000,express,0,1200,USD,web,gift order
+96,41,2022-12-15,cancelled,8500,overnight,0,680,USD,web,gift order
+97,19,2023-11-09,returned,5000,standard,250,400,USD,web,loyalty discount applied
+98,41,2023-04-26,completed,15000,standard,0,1200,USD,mobile,gift order
+99,7,2022-12-02,shipped,21000,standard,2100,1680,USD,web,loyalty discount applied
+100,2,2024-03-06,shipped,8500,standard,850,680,USD,in_store,

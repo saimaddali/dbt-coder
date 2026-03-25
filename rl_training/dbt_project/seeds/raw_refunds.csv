@@ -1,0 +1,26 @@
+id,order_id,reason,refund_amount,status,requested_at,processed_at,processed_by
+1,98,damaged_in_shipping,15000,approved,2024-02-15 17:21:33,2024-03-18 21:56:07,agent_02
+2,35,customer_changed_mind,15750,approved,2024-01-18 12:14:53,2024-02-15 08:06:20,agent_01
+3,67,defective,11250,approved,2023-05-25 01:54:59,2024-01-12 19:47:13,agent_04
+4,10,wrong_size,24000,approved,2023-12-10 18:23:09,2024-06-19 13:12:49,agent_02
+5,13,late_delivery,4250,approved,2024-01-26 07:37:06,2024-01-27 07:32:17,agent_04
+6,74,customer_changed_mind,5000,pending,2023-09-06 23:06:10,,agent_04
+7,65,customer_changed_mind,15750,denied,2024-01-18 10:23:09,2024-03-16 08:07:47,agent_03
+8,44,damaged_in_shipping,10500,approved,2024-04-03 00:20:49,2024-05-03 12:06:00,agent_02
+9,81,late_delivery,30750,approved,2024-06-23 16:31:11,2024-06-29 23:44:13,agent_02
+10,82,customer_changed_mind,11250,approved,2024-03-13 04:50:30,2024-05-22 21:05:44,agent_01
+11,41,damaged_in_shipping,14950,denied,2024-03-04 21:37:54,2024-04-07 22:31:17,agent_01
+12,92,not_as_described,33750,approved,2023-09-13 13:23:33,2024-01-04 03:24:13,agent_01
+13,3,late_delivery,8500,pending,2023-01-26 02:29:12,,agent_03
+14,84,defective,1800,approved,2024-06-03 10:37:17,2024-06-23 12:58:47,agent_04
+15,95,wrong_size,11250,denied,2024-05-17 02:47:28,2024-06-14 06:21:48,agent_04
+16,33,damaged_in_shipping,2400,pending,2024-01-25 03:08:26,,agent_01
+17,45,customer_changed_mind,3500,denied,2024-03-18 05:36:21,2024-04-03 12:02:40,agent_01
+18,85,defective,15000,approved,2024-01-01 14:23:13,2024-05-05 15:14:16,agent_01
+19,48,damaged_in_shipping,5000,pending,2023-08-08 13:24:37,,agent_04
+20,21,wrong_size,10500,approved,2024-05-27 13:27:07,2024-06-06 18:39:00,agent_02
+21,26,late_delivery,15750,pending,2023-10-27 16:07:25,,agent_02
+22,97,customer_changed_mind,2500,pending,2023-12-19 14:28:14,,agent_03
+23,83,late_delivery,20500,approved,2023-09-07 01:01:00,2024-01-20 06:39:30,agent_03
+24,18,customer_changed_mind,24000,approved,2024-04-08 18:17:04,2024-05-24 21:17:56,agent_03
+25,87,late_delivery,20500,pending,2024-04-02 18:56:33,,agent_04

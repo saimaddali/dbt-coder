@@ -1,0 +1,11 @@
+id,name,contact_email,country,lead_time_days
+1,Bean Origin Co,beans@beanorigin.com,Colombia,14
+2,Ethiopian Direct,info@ethdirect.com,Ethiopia,21
+3,Pacific Equipment,sales@pacequip.com,US,7
+4,Ceramic Works,orders@ceramicworks.com,Japan,30
+5,Steel & Glass Mfg,sg@steelglass.com,China,25
+6,Filter Supply Inc,info@filtersupply.com,US,5
+7,Artisan Roasters,wholesale@artisanroast.com,US,3
+8,PackageCo,ship@packageco.com,US,2
+9,Global Freight,logistics@globalfreight.com,US,1
+10,Eco Packaging,hello@ecopack.com,Germany,18

@@ -1,0 +1,16 @@
+id,first_name,last_name,role,department,hire_date
+1,Alex,Morgan,Operations Manager,operations,2021-04-04
+2,Jordan,Lee,Customer Support Lead,support,2022-05-11
+3,Casey,Rivera,Warehouse Manager,operations,2020-07-16
+4,Taylor,Park,Marketing Director,marketing,2020-10-25
+5,Riley,Chen,Sales Representative,sales,2021-10-15
+6,Morgan,Davis,Support Agent,support,2022-10-29
+7,Jamie,Nguyen,Support Agent,support,2023-12-31
+8,Quinn,Baker,Fulfillment Specialist,operations,2021-08-11
+9,Drew,Campbell,Data Analyst,analytics,2022-11-18
+10,Avery,Scott,Content Creator,marketing,2023-03-08
+11,Blake,Turner,Sales Representative,sales,2023-11-03
+12,Cameron,Hall,Inventory Specialist,operations,2020-09-27
+13,Dakota,Flores,Email Marketing,marketing,2022-08-14
+14,Emerson,Patel,QA Specialist,operations,2022-06-03
+15,Finley,Adams,CEO,executive,2021-04-12

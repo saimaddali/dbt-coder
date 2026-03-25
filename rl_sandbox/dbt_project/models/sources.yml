@@ -1,0 +1,28 @@
+version: 2
+
+sources:
+  - name: jaffle_shop
+    schema: main
+    tables:
+      - name: raw_customers
+      - name: raw_orders
+      - name: raw_payments
+      - name: raw_products
+      - name: raw_order_items
+      - name: raw_addresses
+      - name: raw_refunds
+      - name: raw_inventory
+      - name: raw_promotions
+      - name: raw_shipping
+      - name: raw_reviews
+      - name: raw_sessions
+      - name: raw_page_views
+      - name: raw_support_tickets
+      - name: raw_employees
+      - name: raw_suppliers
+      - name: raw_returns
+      - name: raw_subscriptions
+      - name: raw_categories
+      - name: raw_warehouses
+      - name: raw_campaigns
+      - name: raw_email_events

@@ -1,0 +1,31 @@
+id,name,category,subcategory,unit_price,cost,is_active,created_at,updated_at,weight_kg,sku
+1,Espresso Machine Pro,appliances,coffee,29900,18000,true,2022-04-26 18:34:23,2023-06-28 23:36:47,8.5,APL-ESP-001
+2,Pour Over Kit,accessories,coffee,4500,2200,true,2023-03-29 10:45:55,2023-09-24 00:40:05,0.8,ACC-POK-001
+3,Dark Roast Beans 1kg,consumables,coffee,2400,1200,true,2022-02-02 11:44:47,2024-01-26 10:21:07,1.0,CON-DRB-001
+4,Light Roast Beans 1kg,consumables,coffee,2600,1400,true,2022-01-31 23:41:39,2024-03-04 22:02:51,1.0,CON-LRB-001
+5,Coffee Grinder Deluxe,appliances,coffee,15000,9500,true,2022-07-13 19:34:17,2023-08-19 20:12:43,3.2,APL-CGD-001
+6,Ceramic Mug Set (4),accessories,drinkware,3200,1500,true,2023-03-11 20:59:06,2024-04-11 15:25:24,2.0,ACC-CMS-001
+7,Travel Tumbler,accessories,drinkware,2800,1300,true,2022-05-01 01:04:58,2023-12-01 21:06:13,0.4,ACC-TTM-001
+8,Cold Brew Maker,appliances,coffee,8500,5000,false,2022-05-18 12:29:43,2024-04-16 05:43:29,1.5,APL-CBM-001
+9,Milk Frother,accessories,coffee,3500,1800,true,2022-09-16 00:23:09,2024-04-15 18:53:22,0.6,ACC-MFR-001
+10,Decaf Blend 1kg,consumables,coffee,2200,1100,true,2022-07-12 18:10:21,2023-12-25 05:37:08,1.0,CON-DCB-001
+11,Barista Scale,accessories,tools,5500,3200,true,2022-03-25 23:02:54,2024-03-24 03:05:40,0.3,ACC-BSC-001
+12,Cleaning Kit,accessories,maintenance,1800,800,true,2023-01-01 14:17:52,2023-11-20 18:27:54,0.5,ACC-CLK-001
+13,French Press Large,appliances,coffee,6500,3800,true,2022-12-24 12:40:27,2024-02-27 14:06:19,1.2,APL-FPL-001
+14,Latte Art Pitcher,accessories,tools,2200,1000,false,2022-06-26 18:41:14,2023-11-21 03:35:46,0.3,ACC-LAP-001
+15,Single Origin Ethiopian 500g,consumables,coffee,1800,900,true,2022-05-31 00:12:00,2024-04-05 11:56:39,0.5,CON-SOE-001
+16,Single Origin Colombian 500g,consumables,coffee,1600,800,true,2022-02-23 22:05:47,2024-01-03 19:16:01,0.5,CON-SOC-001
+17,Thermal Carafe,accessories,drinkware,4800,2400,true,2023-01-31 16:00:36,2024-04-06 10:32:42,1.1,ACC-TCA-001
+18,Coffee Storage Canister,accessories,storage,2000,900,true,2023-02-21 11:47:08,2024-02-13 05:04:51,0.4,ACC-CSC-001
+19,Water Filter Set,accessories,maintenance,3000,1500,true,2022-03-31 14:07:33,2023-12-20 21:24:15,0.2,ACC-WFS-001
+20,Espresso Cups (6),accessories,drinkware,2800,1200,true,2022-07-26 04:39:06,2023-06-30 17:09:57,1.5,ACC-ECU-001
+21,Manual Grinder,appliances,coffee,7500,4500,true,2022-12-04 12:51:20,2024-02-24 12:04:29,0.8,APL-MGR-001
+22,Coffee Subscription Box,consumables,subscription,4500,2500,true,2022-09-01 15:22:08,2024-05-04 22:58:17,2.0,CON-CSB-001
+23,Drip Coffee Maker,appliances,coffee,12000,7000,true,2023-02-02 05:37:00,2023-08-29 19:47:37,4.0,APL-DCM-001
+24,Reusable Filter Set,accessories,maintenance,1200,500,true,2023-03-24 20:22:48,2023-10-26 15:19:30,0.1,ACC-RFS-001
+25,Coffee Table Book,accessories,lifestyle,3500,1800,true,2022-12-05 16:42:04,2023-06-02 07:31:39,1.5,ACC-CTB-001
+26,Espresso Tamper,accessories,tools,4000,2000,true,2023-02-23 05:28:21,2023-11-01 01:00:03,0.5,ACC-ETM-001
+27,Medium Roast Beans 1kg,consumables,coffee,2500,1300,true,2022-02-24 08:24:22,2024-02-12 11:22:29,1.0,CON-MRB-001
+28,Iced Coffee Glasses (4),accessories,drinkware,2600,1100,true,2023-05-31 06:26:19,2023-09-05 19:11:03,1.8,ACC-ICG-001
+29,Descaling Solution,consumables,maintenance,1500,600,true,2022-08-22 06:24:46,2024-06-28 21:26:55,0.3,CON-DSS-001
+30,Gift Card $50,gift_cards,gift,5000,5000,true,2022-11-14 04:59:44,2024-02-09 08:29:24,0.0,GFT-050-001

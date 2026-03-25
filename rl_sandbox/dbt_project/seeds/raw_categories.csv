@@ -1,0 +1,9 @@
+id,name,parent_category_id
+1,Coffee Equipment,
+2,Appliances,1
+3,Accessories,1
+4,Consumables,
+5,Coffee Beans,4
+6,Maintenance,4
+7,Drinkware,3
+8,Gift Cards,
