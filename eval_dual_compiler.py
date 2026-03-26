@@ -292,6 +292,8 @@ def main():
     parser.add_argument("--base-model-id", help="Base Qwen model ID on Baseten")
     parser.add_argument("--core-model-id", help="Core-RL trained model ID")
     parser.add_argument("--fusion-model-id", help="Fusion-RL trained model ID")
+    parser.add_argument("--checkpoint-step", type=int, default=27,
+                       help="Checkpoint step number for LoRA model name (default: 27)")
     parser.add_argument("--completions-file", help="Skip generation, load completions from JSON")
     parser.add_argument("--output", default="eval_results/dual_compiler_eval.json",
                        help="Output file for results")
@@ -305,7 +307,7 @@ def main():
     # Models: (endpoint_id, vllm_model_name)
     # LoRA checkpoints use "global_step_27/actor/lora_adapter" as model name
     # Base model uses "baseten-model"
-    LORA_MODEL_NAME = "global_step_27/actor/lora_adapter"
+    LORA_MODEL_NAME = f"global_step_{args.checkpoint_step}/actor/lora_adapter"
     models = {}
     model_names = {}
     if args.base_model_id:
