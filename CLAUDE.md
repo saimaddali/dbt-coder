@@ -3,61 +3,39 @@
 ## What This Is
 Fine-tune Qwen 2.5 Coder 7B on dbt/analytics engineering using RL with code execution (GRPO). Uses dbt-core and dbt-fusion as reward signals to test whether a stricter compiler produces better training signal. Key finding: fusion-trained model is 39% better on fusion eval AND 4% better on core eval.
 
-## Project Structure
+## Data Architecture
+
+Single source of truth: `rl_sandbox/` owns all training data (prompts, seeds, reward logic).
+`train.sh` syncs everything into `rl_training/` before pushing to Baseten.
+Never edit prompts or seeds in `rl_training/` directly — they get overwritten.
 
 ```
-rl_sandbox/                    # Reward infrastructure
-  reward.py                    # Score completions: 0.0→0.3→0.6→0.7→0.8→1.0
-  prompts.py                   # 505 training prompts across 15 categories
-  modal_reward_server.py       # Modal HTTP endpoint for parallel scoring
-  test_e2e.py                  # Validate all prompts against both compilers
-  dbt_project/                 # DuckDB sandbox template
-    seeds/                     # 22-table jaffle_shop (1533 rows)
-    models/sources.yml         # Source definitions
-
-rl_training/                   # VeRL GRPO training configs
-  config_core.py               # Model A (dbt-core reward)
-  config_fusion.py             # Model B (dbt-fusion reward)
-  run.sh                       # verl.trainer.main_ppo with GRPO config
-  prepare_dataset.py           # Convert prompts → VeRL parquet (85/15 split)
-  reward_function.py           # VeRL-compatible compute_score()
-  system_prompt.txt            # <think>/<answer> format prompt
-
-eval/                          # Evaluation
-  gazelle_adapter.py           # Bridge to dbt-mcp-gazelle Spider2-DBT
-  spider2_task_filter.py       # Filter Spider2-DBT tasks for single-shot eval
-
-eval_dual_compiler.py          # Dual-compiler eval harness
-scripts/                       # Data generation (seeds + prompts)
-results/FINDINGS.md            # Detailed experiment results
+rl_sandbox/prompts.py          ← single source of truth for prompts
+rl_sandbox/dbt_project/seeds/  ← single source of truth for seed data
+         │
+    train.sh syncs at launch
+         │
+         ▼
+rl_training/data/*.parquet     ← built from prompts, uploaded to container
+rl_training/dbt_project/       ← synced copy, used by reward fallback
 ```
 
 ## Key Commands
 
 ```bash
-# Generate seed data + prompts
-python scripts/generate_seeds.py
-python scripts/generate_prompts.py
-python scripts/generate_prompts_extra.py
-python scripts/generate_prompts_batch3.py
+# Train (handles validate → build parquet → deploy Modal → push)
+./train.sh fusion    # Model B: dbt-fusion reward signal
+./train.sh core      # Model A: dbt-core reward signal
 
-# Test dbt project
-cd rl_sandbox/dbt_project && dbt seed --profiles-dir . && dbt compile --profiles-dir .
-
-# RL training (A/B experiment)
-cd rl_training
-truss train push config_core.py    # Model A: dbt-core reward
-truss train push config_fusion.py  # Model B: dbt-fusion reward
-
-# Modal reward server
-cd rl_sandbox
-modal deploy modal_reward_server.py
+# Evaluate
+./eval.sh --core <JOB_ID> --fusion <JOB_ID> --step 16
 
 # Test reward function locally
 cd rl_sandbox && python reward.py
 
-# Dual-compiler eval
-python eval_dual_compiler.py --base-model-id <ID> --core-model-id <ID> --fusion-model-id <ID>
+# Regenerate data (only if changing schema)
+python scripts/generate_seeds.py
+python scripts/generate_prompts.py
 ```
 
 ## Reward Function Tiers

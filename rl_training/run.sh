@@ -1,14 +1,23 @@
 #!/bin/bash
 # GRPO training for dbt-coder using VeRL.
 #
-# Run two experiments by changing DBT_COMPILER env var:
-#   Model A: DBT_COMPILER=dbt-core  (permissive compile signal)
-#   Model B: DBT_COMPILER=dbt-fusion (strict compile signal)
+# Expects train.parquet and test.parquet to already exist in ./data/
+# (built locally by train.sh before pushing to Baseten)
 
 set -eux
 
-# Prepare dataset from our prompts
-python3 prepare_dataset.py --local_dir /workspace/data/dbt/
+# Verify data exists (fail fast if train.sh didn't prep correctly)
+if [[ ! -f ./data/train.parquet ]] || [[ ! -f ./data/test.parquet ]]; then
+    echo "ERROR: Missing parquet files in ./data/. Run train.sh locally first."
+    exit 1
+fi
+
+TRAIN_COUNT=$(python3 -c "import pandas as pd; print(len(pd.read_parquet('./data/train.parquet')))" 2>/dev/null || echo "0")
+echo "Training with $TRAIN_COUNT prompts"
+if [[ "$TRAIN_COUNT" -lt 400 ]]; then
+    echo "ERROR: Only $TRAIN_COUNT training prompts — expected 400+. Data is stale."
+    exit 1
+fi
 
 # Download base model
 HF_HOME=$BT_RW_CACHE_DIR/huggingface
@@ -19,8 +28,8 @@ python3 -m verl.trainer.main_ppo \
     custom_reward_function.path=reward_function.py \
     custom_reward_function.name=compute_score \
     algorithm.adv_estimator=grpo \
-    data.train_files=/workspace/data/dbt/train.parquet \
-    data.val_files=/workspace/data/dbt/test.parquet \
+    data.train_files=./data/train.parquet \
+    data.val_files=./data/test.parquet \
     data.train_batch_size=8 \
     data.max_prompt_length=2048 \
     data.max_response_length=4096 \

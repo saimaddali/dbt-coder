@@ -50,34 +50,27 @@ The fusion-trained model writes better SQL on **both** compilers. The stricter c
 ## Project Structure
 
 ```
-rl_sandbox/                    # Reward infrastructure
+train.sh                       # One command to launch training
+eval.sh                        # One command to evaluate trained models
+
+rl_sandbox/                    # Source of truth for all training data
+  prompts.py                   # 505 training prompts (single source)
   reward.py                    # Score completions: 0.0 → 1.0
   modal_reward_server.py       # Modal HTTP endpoint for parallel scoring
-  prompts.py                   # 505 training prompts (auto-generated)
   test_e2e.py                  # Validate prompts against both compilers
-  dbt_project/                 # DuckDB sandbox template
-    seeds/                     # 22-table jaffle_shop (1533 rows)
-    models/sources.yml         # Source definitions
+  dbt_project/                 # DuckDB sandbox template (22 tables, 1533 rows)
 
-rl_training/                   # VeRL GRPO training configs
+rl_training/                   # Training container payload
   config_core.py               # Model A: dbt-core reward signal
   config_fusion.py             # Model B: dbt-fusion reward signal
   reward_function.py           # VeRL-compatible compute_score()
   prepare_dataset.py           # Prompts → VeRL parquet (85/15 split)
-  run.sh                       # Training entrypoint
+  run.sh                       # Container entrypoint (uses pre-built parquet)
   system_prompt.txt            # <think>/<answer> format prompt
 
-eval/                          # Evaluation
-  gazelle_adapter.py           # Bridge to dbt-mcp-gazelle Spider2-DBT
-  spider2_task_filter.py       # Filter Spider2-DBT tasks for single-shot eval
-
 eval_dual_compiler.py          # Dual-compiler eval harness
-
-scripts/                       # Data generation
-  generate_seeds.py            # Reproducible 22-table dataset (seed=42)
-  generate_prompts.py          # Base 206 prompts
-  generate_prompts_extra.py    # +141 prompts
-  generate_prompts_batch3.py   # +158 prompts
+eval/                          # External eval adapters
+scripts/                       # Data generation scripts
 ```
 
 ## Dataset
@@ -132,36 +125,18 @@ Covering 15 categories of dbt patterns:
 ## Quick Start
 
 ```bash
-# Generate seed data
+# Generate seed data (if starting fresh)
 python scripts/generate_seeds.py
 
-# Verify dbt project works
-cd rl_sandbox/dbt_project
-dbt seed --profiles-dir .
-dbt compile --profiles-dir .
-
 # Test reward function locally
-cd rl_sandbox
-python reward.py
+cd rl_sandbox && python reward.py
 
-# Deploy Modal reward server
-cd rl_sandbox
-modal deploy modal_reward_server.py
+# Launch training (handles everything: validate, build data, deploy Modal, push)
+./train.sh fusion   # Model B: dbt-fusion reward signal
+./train.sh core     # Model A: dbt-core reward signal
 
-# Prepare training data
-cd rl_training
-python prepare_dataset.py --local_dir ./data/
-
-# Launch RL training
-cd rl_training
-truss train push config_core.py     # Model A: dbt-core reward
-truss train push config_fusion.py   # Model B: dbt-fusion reward
-
-# Run dual-compiler eval
-python eval_dual_compiler.py \
-  --base-model-id <BASE_ID> \
-  --core-model-id <CORE_ID> \
-  --fusion-model-id <FUSION_ID>
+# Evaluate trained models
+./eval.sh --core <CORE_JOB_ID> --fusion <FUSION_JOB_ID> --step 16
 ```
 
 ## Why This Matters

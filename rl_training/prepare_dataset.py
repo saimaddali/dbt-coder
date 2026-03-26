@@ -12,9 +12,7 @@ import os
 import random
 import argparse
 import datasets
-import sys
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "rl_sandbox"))
 from prompts import RL_PROMPTS
 
 with open(os.path.join(os.path.dirname(__file__), "system_prompt.txt")) as f:
