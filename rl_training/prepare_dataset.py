@@ -69,6 +69,15 @@ if __name__ == "__main__":
 
     validate_prompts(RL_PROMPTS)
 
+    # Fail loudly if prompt count is suspiciously low (catches stale copies)
+    MIN_EXPECTED_PROMPTS = 400
+    if len(RL_PROMPTS) < MIN_EXPECTED_PROMPTS:
+        raise RuntimeError(
+            f"ABORT: Only {len(RL_PROMPTS)} prompts found — expected {MIN_EXPECTED_PROMPTS}+. "
+            f"rl_training/prompts.py is likely stale. "
+            f"Run: cp ../rl_sandbox/prompts.py ./prompts.py"
+        )
+
     # Shuffle and split
     shuffled = list(RL_PROMPTS)
     random.seed(args.seed)
