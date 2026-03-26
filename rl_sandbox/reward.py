@@ -23,6 +23,7 @@ from pathlib import Path
 
 
 PROJECT_TEMPLATE = Path(__file__).parent / "dbt_project"
+PRE_SEEDED_DB = Path("/sandbox/pre_seeded.duckdb")
 
 
 def extract_sql(completion: str) -> str:
@@ -215,16 +216,18 @@ def score_completion(
     project_dir = setup_sandbox(sql, model_name, schema_yml)
 
     try:
-        # Clean any existing DuckDB state
+        # Set up DuckDB — use pre-seeded snapshot if available, otherwise seed
         db_path = Path("/tmp/sandbox.duckdb")
         if db_path.exists():
             db_path.unlink()
 
-        # Seed the database first
-        seed_result = run_dbt_command(project_dir, ["seed"], compiler="dbt-core")
-        if not seed_result["success"]:
-            result["errors"].append(f"Seed failed: {seed_result['stderr'][:200]}")
-            return result
+        if PRE_SEEDED_DB.exists():
+            shutil.copy(PRE_SEEDED_DB, db_path)
+        else:
+            seed_result = run_dbt_command(project_dir, ["seed"], compiler="dbt-core")
+            if not seed_result["success"]:
+                result["errors"].append(f"Seed failed: {seed_result['stderr'][:200]}")
+                return result
 
         # Level 1: Compile
         compile_result = run_dbt_command(

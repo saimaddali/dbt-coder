@@ -28,6 +28,11 @@ sandbox_image = (
     .env({"DBT_CORE_BIN": "dbt", "DBT_FUSION_BIN": "/usr/local/bin/dbt-fusion"})
     .add_local_dir("dbt_project", remote_path="/sandbox/dbt_project", copy=True)
     .add_local_file("reward.py", remote_path="/sandbox/reward.py", copy=True)
+    # Pre-seed DuckDB at image build time — runs once, cached in image
+    .run_commands(
+        "cd /sandbox/dbt_project && dbt seed --profiles-dir . && "
+        "cp /tmp/sandbox.duckdb /sandbox/pre_seeded.duckdb"
+    )
 )
 
 

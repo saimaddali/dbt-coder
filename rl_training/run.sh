@@ -70,4 +70,4 @@ python3 -m verl.trainer.main_ppo \
     trainer.default_local_dir=$BT_CHECKPOINT_DIR \
     trainer.save_freq=16 \
     trainer.test_freq=8 \
-    trainer.total_epochs=3 $@
+    trainer.total_epochs=2 $@
