@@ -44,92 +44,8 @@ else:
         "answer in <answer> tags with a sql code fence."
     )
 
-# Eval prompts — mix of simple and fusion-divergent patterns
-EVAL_PROMPTS = [
-    # Simple staging (both compilers should agree)
-    {
-        "id": "stg_customers",
-        "prompt": "Write a dbt staging model called stg_customers that reads from {{ source('jaffle_shop', 'raw_customers') }}. Rename 'id' to 'customer_id', cast 'created_at' to date, include first_name, last_name, email.",
-        "model_name": "stg_customers",
-        "expected_columns": ["customer_id", "first_name", "last_name", "email"],
-    },
-    {
-        "id": "stg_orders",
-        "prompt": "Write a dbt staging model called stg_orders that reads from {{ source('jaffle_shop', 'raw_orders') }}. Rename 'id' to 'order_id', convert amount from cents to dollars (divide by 100.0), cast order_date to date.",
-        "model_name": "stg_orders",
-        "expected_columns": ["order_id", "customer_id", "order_date", "amount"],
-    },
-    # Joins (moderate complexity)
-    {
-        "id": "customer_orders",
-        "prompt": "Write a dbt model called customer_orders that joins raw_customers and raw_orders on customer_id. Include customer_id, first_name, last_name, order count, and total order amount in dollars. Use CTEs.",
-        "model_name": "customer_orders",
-        "expected_columns": ["customer_id", "first_name", "order_count", "total_amount"],
-    },
-    # Multi-table join
-    {
-        "id": "order_details",
-        "prompt": "Write a dbt model called order_details that joins raw_orders, raw_order_items, and raw_products. Include order_id, product_name, quantity, unit_price, and line_total (quantity * unit_price). Use CTEs with {{ source('jaffle_shop', ...) }}.",
-        "model_name": "order_details",
-        "expected_columns": ["order_id", "product_name", "quantity", "line_total"],
-    },
-    # UNION — fusion-divergent (type mismatch potential)
-    {
-        "id": "all_events",
-        "prompt": "Write a dbt model called all_events that UNIONs order events and payment events into a single timeline. From raw_orders use order_date as event_date and 'order' as event_type. From raw_payments use payment_date as event_date and 'payment' as event_type. Include relevant IDs.",
-        "model_name": "all_events",
-        "expected_columns": ["event_date", "event_type"],
-    },
-    # Aggregation with window function
-    {
-        "id": "customer_lifetime",
-        "prompt": "Write a dbt model called customer_lifetime that calculates for each customer: first_order_date, most_recent_order_date, lifetime_order_count, lifetime_spend_dollars (amount/100), and days_as_customer (most_recent - first). Join raw_customers and raw_orders.",
-        "model_name": "customer_lifetime",
-        "expected_columns": ["customer_id", "first_order_date", "lifetime_order_count", "lifetime_spend_dollars"],
-    },
-    # CASE statement
-    {
-        "id": "order_status_summary",
-        "prompt": "Write a dbt model called order_status_summary that categorizes orders from raw_orders into 'high_value' (amount > 5000), 'medium_value' (1000-5000), and 'low_value' (< 1000). Include order_id, customer_id, amount, and value_category.",
-        "model_name": "order_status_summary",
-        "expected_columns": ["order_id", "value_category"],
-    },
-    # Incremental pattern
-    {
-        "id": "incremental_orders",
-        "prompt": "Write a dbt incremental model called incremental_orders that reads from {{ source('jaffle_shop', 'raw_orders') }}. Use the merge strategy, unique on id, and incrementally load based on order_date. Include all columns.",
-        "model_name": "incremental_orders",
-        "expected_columns": ["id", "customer_id", "order_date"],
-    },
-    # Jinja variable + conditional
-    {
-        "id": "filtered_payments",
-        "prompt": "Write a dbt model called filtered_payments that reads from raw_payments. Use a Jinja variable to set a minimum payment amount (default 1000). Filter out payments below that threshold. Include payment_id (renamed from id), order_id, amount, and payment_method.",
-        "model_name": "filtered_payments",
-        "expected_columns": ["payment_id", "order_id", "amount"],
-    },
-    # Complex — 4 table join with aggregation
-    {
-        "id": "customer_360",
-        "prompt": "Write a dbt model called customer_360 that creates a complete customer profile. Join raw_customers, raw_orders, raw_payments, and raw_addresses. For each customer include: customer_id, full_name (first || last), email, total_orders, total_payments_dollars, default_city, default_state. Use CTEs.",
-        "model_name": "customer_360",
-        "expected_columns": ["customer_id", "full_name", "total_orders", "total_payments_dollars"],
-    },
-    # Refund analysis — tests fusion on nullable/type handling
-    {
-        "id": "refund_analysis",
-        "prompt": "Write a dbt model called refund_analysis that joins raw_refunds with raw_orders and raw_order_items. Calculate refund_rate (refund_amount / order total), include order_id, refund_reason, refund_status, and days_to_process (processed_at - requested_at). Handle NULLs for pending refunds.",
-        "model_name": "refund_analysis",
-        "expected_columns": ["order_id", "refund_reason", "refund_status"],
-    },
-    # Window function — running total
-    {
-        "id": "running_revenue",
-        "prompt": "Write a dbt model called running_revenue that calculates daily revenue from raw_orders (amount/100 as revenue_dollars) and a running total using a window function ordered by order_date. Include order_date, daily_revenue, and cumulative_revenue.",
-        "model_name": "running_revenue",
-        "expected_columns": ["order_date", "daily_revenue", "cumulative_revenue"],
-    },
-]
+# Import expanded eval prompts (60 prompts across 9 categories)
+from eval_prompts_v2 import EVAL_PROMPTS
 
 
 def generate_completion(model_id, prompt, system_prompt=SYSTEM_PROMPT, model_name=None):
@@ -293,7 +209,9 @@ def main():
     parser.add_argument("--core-model-id", help="Core-RL trained model ID")
     parser.add_argument("--fusion-model-id", help="Fusion-RL trained model ID")
     parser.add_argument("--checkpoint-step", type=int, default=27,
-                       help="Checkpoint step number for LoRA model name (default: 27)")
+                       help="Checkpoint step number for core LoRA model name (default: 27)")
+    parser.add_argument("--fusion-checkpoint-step", type=int, default=None,
+                       help="Checkpoint step for fusion (defaults to --checkpoint-step)")
     parser.add_argument("--completions-file", help="Skip generation, load completions from JSON")
     parser.add_argument("--output", default="eval_results/dual_compiler_eval.json",
                        help="Output file for results")
@@ -307,7 +225,9 @@ def main():
     # Models: (endpoint_id, vllm_model_name)
     # LoRA checkpoints use "global_step_27/actor/lora_adapter" as model name
     # Base model uses "baseten-model"
-    LORA_MODEL_NAME = f"global_step_{args.checkpoint_step}/actor/lora_adapter"
+    core_lora = f"global_step_{args.checkpoint_step}/actor/lora_adapter"
+    fusion_step = args.fusion_checkpoint_step or args.checkpoint_step
+    fusion_lora = f"global_step_{fusion_step}/actor/lora_adapter"
     models = {}
     model_names = {}
     if args.base_model_id:
@@ -315,10 +235,10 @@ def main():
         model_names["base"] = "baseten-model"
     if args.core_model_id:
         models["core-rl"] = args.core_model_id
-        model_names["core-rl"] = LORA_MODEL_NAME
+        model_names["core-rl"] = core_lora
     if args.fusion_model_id:
         models["fusion-rl"] = args.fusion_model_id
-        model_names["fusion-rl"] = LORA_MODEL_NAME
+        model_names["fusion-rl"] = fusion_lora
 
     if not models and not args.completions_file:
         parser.error("Provide at least one model ID or --completions-file")
